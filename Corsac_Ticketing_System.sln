@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corsac_Ticketing_System", "Corsac_Ticketing_System\Corsac_Ticketing_System.csproj", "{8994DEBF-B96E-4DC0-98C2-87040E626215}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8994DEBF-B96E-4DC0-98C2-87040E626215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8994DEBF-B96E-4DC0-98C2-87040E626215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8994DEBF-B96E-4DC0-98C2-87040E626215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8994DEBF-B96E-4DC0-98C2-87040E626215}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99725263-1574-4952-A1B7-4F767BF0A0CF}
+	EndGlobalSection
+EndGlobal
