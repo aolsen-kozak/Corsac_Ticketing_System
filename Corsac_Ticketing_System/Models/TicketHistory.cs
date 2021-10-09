@@ -11,8 +11,8 @@ namespace Corsac_Ticketing_System.Models
         public Int64 TicketId { get; set; }
         public string OldStatus { get; set; }
         public string NewStatus { get; set; }
-        public string OldStaffId { get; set; }
-        public string NewStaffId { get; set; }
+        public int? OldStaffId { get; set; }
+        public int NewStaffId { get; set; }
         public string Comment { get; set; }
     }
 }

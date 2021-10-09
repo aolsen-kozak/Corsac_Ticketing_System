@@ -1,0 +1,74 @@
+﻿@model Corsac_Ticketing_System.Models.Ticket
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Ticket</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ReferenceId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReferenceId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.StaffId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.StaffId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SubjectLine)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SubjectLine)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IssueDescription)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IssueDescription)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
