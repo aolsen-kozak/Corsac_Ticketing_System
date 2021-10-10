@@ -48,11 +48,10 @@ namespace Corsac_Ticketing_System.Controllers
         }
 
         // POST: Tickets/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,ReferenceId,Status,StaffId,CustomerId,SubjectLine,IssueDescription")] Ticket ticket)
+        public async Task<ActionResult> Create([Bind(Include = "Department, SubjectLine,IssueDescription")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
