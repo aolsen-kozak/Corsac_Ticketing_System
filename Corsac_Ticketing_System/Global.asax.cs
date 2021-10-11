@@ -17,7 +17,6 @@ namespace Corsac_Ticketing_System
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //On startup open cmd and fire up smtp4dev to allow for message sending
 
         }
     }

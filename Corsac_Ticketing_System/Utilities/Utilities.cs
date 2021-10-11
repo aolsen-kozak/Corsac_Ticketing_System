@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Security.Cryptography;
 using System.Text;
+using System.Net.Mail;
 
 namespace Corsac_Ticketing_System.Utilities
 {
@@ -54,6 +55,18 @@ namespace Corsac_Ticketing_System.Utilities
             }
 
            return new String(stringChars);
+        }
+
+        public void SendCustomerEmail(string customerEmail, string emailBody, string emailSubject)
+        {
+            var smtpClient = new SmtpClient()
+            {
+                Host = "localhost",
+                Port = 25
+            };
+
+            smtpClient.Send("corsac_support@localhost", customerEmail, emailSubject, emailBody);
+
         }
     }
 }

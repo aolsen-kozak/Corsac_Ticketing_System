@@ -31,7 +31,7 @@ namespace Corsac_Ticketing_System.Models
 
         public string ReferenceId { get; set; }
         public Statuses Status { get; set; }
-        public int StaffId { get; set; }
+        public int? StaffId { get; set; }
         public int CustomerId { get; set; }
         public string SubjectLine { get; set; }
         public string IssueDescription { get; set; }

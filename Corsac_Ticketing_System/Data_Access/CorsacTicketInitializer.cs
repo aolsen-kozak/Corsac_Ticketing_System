@@ -60,9 +60,9 @@ namespace Corsac_Ticketing_System.Data_Access
 
             var ticketHistories = new List<TicketHistory>
             {
-                new TicketHistory{TicketId = 1, OldStaffId = null, NewStaffId = 1, OldStatus = Statuses.Waiting_For_Staff_Response.ToString(), NewStatus = Statuses.Waiting_For_Customer.ToString(), Comment = "Sure, would you mind passing me your account number?"},
-                new TicketHistory{TicketId = 2, OldStaffId = null, NewStaffId = 2, OldStatus = Statuses.Waiting_For_Staff_Response.ToString(), NewStatus = Statuses.On_Hold.ToString()},
-                new TicketHistory{TicketId = 3, OldStaffId = null, NewStaffId = 1, OldStatus = Statuses.Waiting_For_Staff_Response.ToString(), NewStatus = Statuses.Completed.ToString(), Comment = "Hi Suzy, I ran a repair on your Windows system last night and things look good. I'll close this for now and feel free to re-open if needed."},
+                new TicketHistory{TicketId = 1, OldStaffId = null, NewStaffId = 1, OldStatus = Statuses.Waiting_For_Staff_Response, NewStatus = Statuses.Waiting_For_Customer, Comment = "Sure, would you mind passing me your account number?", StaffEdit = true, TimeStamp = DateTime.UtcNow},
+                new TicketHistory{TicketId = 2, OldStaffId = null, NewStaffId = 2, OldStatus = Statuses.Waiting_For_Staff_Response, NewStatus = Statuses.On_Hold, TimeStamp = DateTime.UtcNow},
+                new TicketHistory{TicketId = 3, OldStaffId = null, NewStaffId = 1, OldStatus = Statuses.Waiting_For_Staff_Response, NewStatus = Statuses.Completed, Comment = "Hi Suzy, I ran a repair on your Windows system last night and things look good. I'll close this for now and feel free to re-open if needed.", StaffEdit = true, TimeStamp = DateTime.UtcNow},
             };
 
             ticketHistories.ForEach(th => context.TicketHistories.Add(th));
