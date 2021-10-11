@@ -38,5 +38,7 @@ namespace Corsac_Ticketing_System.Models
         public Departments Department { get; set; }
 
         public virtual ICollection<TicketHistory> TicketHistories { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

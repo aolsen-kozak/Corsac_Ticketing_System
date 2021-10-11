@@ -25,9 +25,36 @@ namespace Corsac_Ticketing_System.Controllers
             _utilities = new Utilities.Utilities();
         }
         // GET: Tickets
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index( string list)
         {
-            return View(await _corsacContext.Tickets.ToListAsync());
+
+            switch (list)
+            {
+                case "newUnassigned":
+                    {
+                        return View(await _corsacContext.Tickets.Where(t => t.StaffId == null 
+                            && t.Status == Statuses.Waiting_For_Staff_Response).ToListAsync());
+                    }
+                case "open":
+                    {
+                        return View(await _corsacContext.Tickets.Where(t => t.Status != Statuses.Waiting_For_Staff_Response || 
+                            (t.Status == Statuses.Waiting_For_Staff_Response && t.TicketHistories.Count > 0)).ToListAsync());
+                    }
+                    
+                case "onHold":
+                    {
+                        return View(await _corsacContext.Tickets.Where(t => t.Status == Statuses.On_Hold).ToListAsync());
+                    }
+                    
+                case "closed":
+                    {
+                        return View(await _corsacContext.Tickets.Where(t => t.Status == Statuses.Completed 
+                            || t.Status == Statuses.Cancelled).ToListAsync());
+                    }
+                default:
+                    return View(await _corsacContext.Tickets.ToListAsync());
+            }
+            
         }
 
 
@@ -106,7 +133,7 @@ namespace Corsac_Ticketing_System.Controllers
             }
             else
             {
-                ticket = await _corsacContext.Tickets.FindAsync(refTicketId);
+                ticket = await _corsacContext.Tickets.FindAsync(int.Parse(refTicketId));
             }
             
 

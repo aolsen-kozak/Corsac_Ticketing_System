@@ -16,7 +16,7 @@ namespace Corsac_Ticketing_System
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Tickets", action = "Create", id = UrlParameter.Optional }
+                defaults: new { controller = "Tickets", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

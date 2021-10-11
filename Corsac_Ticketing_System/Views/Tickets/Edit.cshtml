@@ -14,91 +14,100 @@
 <body>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
-    
-    
+
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
-    <div class="form-horizontal">
-        <h4>Ticket @Html.DisplayFor(model => model.Ticket.ReferenceId)</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Ticket.Id)
-        @Html.HiddenFor(model => model.Ticket.ReferenceId)
-        @Html.HiddenFor(model => model.Ticket.SubjectLine)
-        @Html.HiddenFor(model => model.Ticket.IssueDescription)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Ticket.Status, htmlAttributes: new { @class = "control-label col-md-2", @style="font-weight:bold" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Ticket.Status, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Ticket.Status, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <div class="form-horizontal">
+            <h4>Ticket @Html.DisplayFor(model => model.Ticket.ReferenceId)</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Ticket.Id)
+            @Html.HiddenFor(model => model.Ticket.ReferenceId)
+            @Html.HiddenFor(model => model.Ticket.SubjectLine)
+            @Html.HiddenFor(model => model.Ticket.IssueDescription)
 
-        <div class="form-group">
-            <label class = "control-label col-md-2" style="font-weight:bold">Assigned To:</label>
-            <div class="col-md-10">
-                @Html.DisplayFor(model => model.Ticket.StaffId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ticket.StaffId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.HiddenFor(model => model.Ticket.CustomerId, htmlAttributes: new { @class = "control-label col-md-2" })
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Ticket.SubjectLine, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-weight:bold" })
-            <div class="col-md-10">
-                @Html.DisplayFor(model => model.Ticket.SubjectLine, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ticket.SubjectLine, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Ticket.IssueDescription, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-weight:bold" })
-            <div class="col-md-10">
-                @Html.DisplayFor(model => model.Ticket.IssueDescription, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ticket.IssueDescription, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Ticket.Department, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-weight:bold" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Ticket.Department, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Ticket.Department, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" style="font-weight:bold">Add a Comment:</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @foreach (var th in Model.TicketHistories.OrderByDescending(t => t.TimeStamp))
-            {
-                @Html.LabelFor(modelItem => th.Comment, $"Comment - {th.TimeStamp}",htmlAttributes: new { @class = "control-label col-md-2", @style = "font-weight:bold" })
+            <div class="form-group">
+                <label class = "control-label col-md-2" style = "font-weight:bold">Staff Edit?</label>
                 <div class="col-md-10">
-                    @Html.DisplayFor(modelItem => th.Comment, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.CheckBoxFor(model => model.StaffEdit, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Ticket.Status, "", new { @class = "text-danger" })
                 </div>
-            }
-        </div>
+            </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Ticket.Status, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-weight:bold" })
+                <div class="col-md-10">
+                    @Html.EnumDropDownListFor(model => model.Ticket.Status, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Ticket.Status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" style="font-weight:bold">Assigned To:</label>
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.Ticket.StaffId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ticket.StaffId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.HiddenFor(model => model.Ticket.CustomerId, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Ticket.SubjectLine, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-weight:bold" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.Ticket.SubjectLine, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ticket.SubjectLine, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Ticket.IssueDescription, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-weight:bold" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.Ticket.IssueDescription, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ticket.IssueDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Ticket.Department, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-weight:bold" })
+                <div class="col-md-10">
+                    @Html.EnumDropDownListFor(model => model.Ticket.Department, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Ticket.Department, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" style="font-weight:bold">Add a Comment:</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @foreach (var th in Model.TicketHistories.OrderByDescending(t => t.TimeStamp))
+                {
+                    string staffText = (th.StaffEdit) ? "Support Team" : "Customer";
+                    @Html.LabelFor(modelItem => th.Comment, $"Comment - {th.TimeStamp} - {staffText}", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-weight:bold" })
+                    <div class="col-md-10">
+                        @Html.DisplayFor(modelItem => th.Comment, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
         </div>
-    </div>
     }
-    
+
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
